@@ -9,6 +9,7 @@ import {
     Text,
     Link,
     Image,
+    Skeleton,
 } from '@chakra-ui/react';
 import NextImage from 'next/image';
 import { css } from '@emotion/react';
@@ -156,7 +157,20 @@ export default function Posts() {
     );
 
     if (error) return <div>failed to load</div>;
-    if (!data) return <div>loading...</div>;
+    if (!data)
+        return (
+            <Box>
+                <Header />
+                <Skeleton height="320px" mt="3" />
+                <Skeleton height="20px" mt="3" />
+                <Skeleton height="20px" mt="3" />
+                <Skeleton height="20px" mt="3" />
+                <Skeleton height="180px" mt="3" />
+                <Skeleton height="20px" mt="3" />
+                <Skeleton height="20px" mt="3" />
+                <Skeleton height="20px" mt="3" />
+            </Box>
+        );
 
     return (
         <Box mb="8" borderRadius="md">
