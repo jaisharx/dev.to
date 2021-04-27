@@ -14,7 +14,7 @@ const DevButton = styled(Button)`
 
 export default function Navbar() {
     return (
-        <Box py="2" boxShadow="md">
+        <Box py="2" boxShadow="md" borderBottom="1px solid #b5bdc4">
             <Container>
                 <HStack spacing={5}>
                     <Image src="/assets/logo.svg" />

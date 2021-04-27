@@ -4,6 +4,7 @@ import styled from '@emotion/styled';
 const LinkButton = styled(Button)`
     background: transparent;
     width: 14rem;
+    padding: 8px;
     font-weight: normal;
     justify-content: flex-start;
 
@@ -73,7 +74,7 @@ function Tags() {
 
 export default function Sidebar() {
     return (
-        <Box as="aside" mt="4">
+        <Box as="aside">
             <Links />
             <Tags />
         </Box>
