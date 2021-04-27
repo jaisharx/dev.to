@@ -75,6 +75,13 @@ const SaveBtn = styled(Button)`
     }
 `;
 
+const PostLink = styled(Link)`
+    &:hover {
+        color: #323ebe;
+        text-decoration: none;
+    }
+`;
+
 function Header() {
     return (
         <Box as="header">
@@ -99,6 +106,7 @@ function Card({
     publishedDate,
     tagList,
     headerImage,
+    postLink,
 }) {
     return (
         <Box
@@ -122,8 +130,10 @@ function Card({
                             {publishedDate}
                         </Text>
                     </VStack>
-                    <Heading fontSize="24px" mt="3">
-                        <Link>{title}</Link>
+                    <Heading fontSize={headerImage ? '30px' : '24px'} mt="3">
+                        <PostLink href={postLink} isExternal>
+                            {title}
+                        </PostLink>
                     </Heading>
                     <HStack mt="3" fontSize="14px" color="#64707d">
                         {tagList.map((tag) => (
@@ -181,6 +191,7 @@ export default function Posts() {
                     title={post.title}
                     username={post.user.name}
                     tagList={post.tag_list}
+                    postLink={`https://dev.to/${post.path}`}
                     publishedDate={post.readable_publish_date}
                     userProfile={post.user.profile_image_url}
                     headerImage={idx === 0 ? post.main_image : ''}
