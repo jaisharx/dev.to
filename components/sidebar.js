@@ -42,7 +42,7 @@ function Links() {
                 Tags
             </LinkButton>
             <LinkButton>
-                <Text fontWeight="normal" color="#4d5760" ml="10">More...</Text>
+                <Text fontWeight="normal" color="#4d5760" ml="2.3rem">More...</Text>
             </LinkButton>
         </Box>
     );
