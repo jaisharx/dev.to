@@ -19,7 +19,7 @@ export default function Home() {
 
             <Box as="main" bg="#EEF0F1">
                 <Container>
-                    <Grid templateColumns="1fr 3fr 1.4fr" gap={4} pt="4">
+                    <Grid templateColumns="1fr 3fr 1.6fr" gap={4} pt="4">
                         <Sidebar />
                         <Posts />
                         <Listing />
