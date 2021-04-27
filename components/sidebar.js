@@ -1,4 +1,4 @@
-import { Box, Button, Flex, Heading, Image, Spacer } from '@chakra-ui/react';
+import { Box, Button, Flex, Heading, Image, Text, Spacer } from '@chakra-ui/react';
 import styled from '@emotion/styled';
 
 const LinkButton = styled(Button)`
@@ -9,6 +9,7 @@ const LinkButton = styled(Button)`
     justify-content: flex-start;
 
     &:hover {
+        color: #323ebe;
         background-color: #e2e4e6;
     }
 `;
@@ -40,6 +41,9 @@ function Links() {
                 <Image src="/assets/sidebar/tag.svg" mr="3" />
                 Tags
             </LinkButton>
+            <LinkButton>
+                <Text fontWeight="normal" color="#4d5760" ml="10">More...</Text>
+            </LinkButton>
         </Box>
     );
 }
@@ -47,10 +51,12 @@ function Links() {
 function Tags() {
     return (
         <Box mt="6">
-            <Flex pl="4" py="4">
-                <Heading as="h3" fontSize="1rem">My Tags</Heading>
-                <Spacer/>
-                <Image src="/assets/settings.svg"/>
+            <Flex pl="2" py="4">
+                <Heading as="h3" fontSize="1rem">
+                    My Tags
+                </Heading>
+                <Spacer />
+                <Image src="/assets/settings.svg" />
             </Flex>
             <Box maxH="42vh" overflowY="auto">
                 <LinkButton>#react</LinkButton>
