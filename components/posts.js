@@ -67,7 +67,7 @@ const SaveBtn = styled(Button)`
     font-size: 14px;
 
     &:hover {
-        background-color: #B5BDC4;
+        background-color: #b5bdc4;
     }
 `;
 
@@ -88,17 +88,18 @@ function Header() {
     );
 }
 
-function Card() {
+function Card({ isFirst }) {
     return (
         <Box
-            as="article"
-            p={4}
-            bg="white"
             mt="3"
+            as="article"
+            bg="white"
             borderRadius="md"
+            overflow="hidden"
             border="1px solid #08090a1a"
         >
-            <Grid templateColumns="min-content 1fr" gap={2}>
+            {isFirst ? <Image src="/assets/header.jpeg" /> : ''}
+            <Grid templateColumns="min-content 1fr" gap={2} p={4}>
                 <Box w="32px" h="32px" bg="teal.200" borderRadius="full"></Box>
                 <Box>
                     <VStack align="flex-start" spacing={0}>
@@ -121,7 +122,10 @@ function Card() {
                         <Text as={Link}>#productivity</Text>
                     </HStack>
                     <HStack mt={3}>
-                        <CardBtn leftIcon={<Image src="/assets/like.svg" />} ml={-2}>
+                        <CardBtn
+                            leftIcon={<Image src="/assets/like.svg" />}
+                            ml={-2}
+                        >
                             155 reactions
                         </CardBtn>
                         <CardBtn leftIcon={<Image src="/assets/comment.svg" />}>
@@ -141,7 +145,7 @@ export default function Posts() {
     return (
         <Box mb="8" borderRadius="md">
             <Header />
-            <Card />
+            <Card isFirst />
             <Card />
             <Card />
             <Card />
