@@ -13,6 +13,9 @@ import {
 import NextImage from 'next/image';
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
+import usePosts from 'hooks/usePosts';
+import useSWR from 'swr';
+import fetcher from 'lib/fetcher';
 
 const HeaderBtn = styled(Button)`
     position: relative;
@@ -89,7 +92,14 @@ function Header() {
     );
 }
 
-function Card({ isFirst }) {
+function Card({
+    title,
+    username,
+    userProfile,
+    publishedDate,
+    tagList,
+    headerImage,
+}) {
     return (
         <Box
             mt="3"
@@ -99,36 +109,30 @@ function Card({ isFirst }) {
             overflow="hidden"
             border="1px solid #08090a1a"
         >
-            {isFirst ? (
-                <NextImage
-                    src="/assets/header.jpeg"
-                    width="1000"
-                    height="420"
-                />
+            {headerImage ? (
+                <Image src={headerImage} width="1000" height="420" />
             ) : (
                 ''
             )}
-            <Grid templateColumns="min-content 1fr" gap={2} p={4}>
-                <Box w="32px" h="32px" bg="teal.200" borderRadius="full"></Box>
+            <Grid templateColumns="max-content 1fr" gap={2} p={4}>
+                <Image src={userProfile} w="8" borderRadius="full" />
+
                 <Box>
                     <VStack align="flex-start" spacing={0}>
                         <Text color="#4d5760" fontSize="14px" fontWeight="500">
-                            Gedalya Krycer
+                            {username}
                         </Text>
                         <Text color="#4d5760" fontSize="12px">
-                            Apr 26 (16 hours ago)
+                            {publishedDate}
                         </Text>
                     </VStack>
                     <Heading fontSize="24px" mt="3">
-                        <Link>
-                            165+ Developer Resources I Discovered in 2020-2021
-                        </Link>
+                        <Link>{title}</Link>
                     </Heading>
                     <HStack mt="3" fontSize="14px" color="#64707d">
-                        <Text as={Link}>#javascript</Text>
-                        <Text as={Link}>#beginners</Text>
-                        <Text as={Link}>#webdev</Text>
-                        <Text as={Link}>#productivity</Text>
+                        {tagList.map((tag) => (
+                            <Text as={Link}>{tag}</Text>
+                        ))}
                     </HStack>
                     <HStack mt={3}>
                         <CardBtn
@@ -151,15 +155,29 @@ function Card({ isFirst }) {
 }
 
 export default function Posts() {
+    // const { posts, error } = usePosts();
+    const { data, error } = useSWR(
+        'https://dev.to/stories/feed/?page=1',
+        fetcher
+    );
+
+    if (error) return <div>failed to load</div>;
+    if (!data) return <div>loading...</div>;
+
     return (
         <Box mb="8" borderRadius="md">
             <Header />
-            <Card isFirst />
-            <Card />
-            <Card />
-            <Card />
-            <Card />
-            <Card />
+            {data.map((post, idx) => (
+                <Card
+                    key={post.id}
+                    title={post.title}
+                    username={post.user.name}
+                    tagList={post.tag_list}
+                    publishedDate={post.readable_publish_date}
+                    userProfile={post.user.profile_image_url}
+                    headerImage={idx === 0 ? post.main_image : ''}
+                />
+            ))}
         </Box>
     );
 }
