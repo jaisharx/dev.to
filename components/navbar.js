@@ -25,15 +25,17 @@ export default function Navbar() {
                         borderRadius="5px"
                     />
                     <Spacer />
-                    <DevButton>Write a post</DevButton>
-                    <Image src="/assets/notification.svg" />
-                    <Image src="/assets/bell.svg" />
-                    <Image
-                        w="8"
-                        src="/assets/profile.jpeg"
-                        borderRadius="full"
-                        border="2px solid #eef0f1"
-                    />
+                    <HStack spacing={6}>
+                        <DevButton>Write a post</DevButton>
+                        <Image src="/assets/notification.svg" />
+                        <Image src="/assets/bell.svg" />
+                        <Image
+                            w="8"
+                            src="/assets/profile.jpeg"
+                            borderRadius="full"
+                            border="2px solid #eef0f1"
+                        />
+                    </HStack>
                 </HStack>
             </Container>
         </Box>
