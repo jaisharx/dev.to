@@ -1,17 +1,39 @@
-import { Box, Flex, Link, Heading, Text, Spacer } from '@chakra-ui/react';
+import {
+    Box,
+    Flex,
+    Link,
+    Heading,
+    Text,
+    Spacer,
+    VStack,
+} from '@chakra-ui/react';
 
-function List() {
+function ListHeading() {
     return (
-        <Box as="section" bg="white" borderRadius="md">
-            <Box border="1px solid #E2E4E6">
-                <Flex align="center" p="3">
-                    <Heading fontSize="1.25rem">Listings</Heading>
-                    <Spacer />
-                    <Link fontSize="14px" color="#3b49df" fontWeight="medium">
-                        See all
-                    </Link>
-                </Flex>
-            </Box>
+        <Box borderBottom="1px solid #E2E4E6">
+            <Flex align="center" p="3">
+                <Heading fontSize="1.25rem">Listings</Heading>
+                <Spacer />
+                <Link fontSize="14px" color="#3b49df" fontWeight="medium">
+                    See all
+                </Link>
+            </Flex>
+        </Box>
+    );
+}
+
+function HashTagHeading() {
+    return (
+        <Box borderBottom="1px solid #E2E4E6" p="3">
+            <Heading fontSize="20px">#news</Heading>
+        </Box>
+    );
+}
+
+function List({ headingType }) {
+    return (
+        <Box as="section" bg="white" borderRadius="md" border="1px solid #E2E4E6">
+            {headingType === 'hashtag' ? <HashTagHeading /> : <ListHeading />}
             <Box borderBottom="1px solid #E2E4E6">
                 <Box p="3">
                     <Text>
@@ -44,7 +66,7 @@ function List() {
                     </Text>
                 </Box>
             </Box>
-            <Box borderBottom="1px solid #E2E4E6">
+            <Box>
                 <Box p="3">
                     <Text>Pair Programming with Jhey</Text>
                     <Text mt="2" color="#4d5760" fontSize="14px">
@@ -58,8 +80,9 @@ function List() {
 
 export default function Listing() {
     return (
-        <Box as="aside">
+        <VStack as="aside" spacing="4">
             <List />
-        </Box>
+            <List headingType="hashtag" />
+        </VStack>
     );
 }
