@@ -192,7 +192,7 @@ export default function Posts() {
                     title={post.title}
                     username={post.user.name}
                     tagList={post.tag_list}
-                    postLink={`https://dev.to/${post.path}`}
+                    postLink={`https://dev.to${post.path}`}
                     publishedDate={post.readable_publish_date}
                     userProfile={post.user.profile_image_url}
                     headerImage={idx === 0 ? post.main_image : ''}
