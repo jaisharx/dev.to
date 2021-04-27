@@ -59,6 +59,18 @@ const CardBtn = styled(Button)`
     }
 `;
 
+const SaveBtn = styled(Button)`
+    background-color: #d2d6db;
+    padding: 8px 12px;
+    height: auto;
+    font-weight: normal;
+    font-size: 14px;
+
+    &:hover {
+        background-color: #B5BDC4;
+    }
+`;
+
 function Header() {
     return (
         <Box as="header">
@@ -117,7 +129,7 @@ function Card() {
                         </CardBtn>
                         <Spacer />
                         <Text fontSize="12px">18 min read</Text>
-                        <Button fontWeight="normal">Save</Button>
+                        <SaveBtn>Save</SaveBtn>
                     </HStack>
                 </Box>
             </Grid>

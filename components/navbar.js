@@ -30,7 +30,7 @@ export default function Navbar() {
                         <Image src="/assets/notification.svg" />
                         <Image src="/assets/bell.svg" />
                         <Image
-                            w="8"
+                            w="10"
                             src="/assets/profile.jpeg"
                             borderRadius="full"
                             border="2px solid #eef0f1"
