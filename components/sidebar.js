@@ -3,7 +3,7 @@ import styled from '@emotion/styled';
 
 const LinkButton = styled(Button)`
     background: transparent;
-    width: 16rem;
+    width: 14rem;
     font-weight: normal;
     justify-content: flex-start;
 
