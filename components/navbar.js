@@ -8,8 +8,8 @@ export default function Navbar() {
                 <HStack spacing={5}>
                     <Image src="/assets/logo.svg" />
                     <Input
-                        placeholder="Search..."
                         maxW="26rem"
+                        placeholder="Search..."
                         borderColor="#b5bdc4"
                         borderRadius="5px"
                     />
