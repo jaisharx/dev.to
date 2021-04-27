@@ -10,6 +10,7 @@ import {
     Link,
     Image,
 } from '@chakra-ui/react';
+import NextImage from 'next/image';
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 
@@ -98,7 +99,15 @@ function Card({ isFirst }) {
             overflow="hidden"
             border="1px solid #08090a1a"
         >
-            {isFirst ? <Image src="/assets/header.jpeg" /> : ''}
+            {isFirst ? (
+                <NextImage
+                    src="/assets/header.jpeg"
+                    width="1000"
+                    height="420"
+                />
+            ) : (
+                ''
+            )}
             <Grid templateColumns="min-content 1fr" gap={2} p={4}>
                 <Box w="32px" h="32px" bg="teal.200" borderRadius="full"></Box>
                 <Box>
