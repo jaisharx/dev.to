@@ -13,7 +13,6 @@ import {
 import NextImage from 'next/image';
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
-import usePosts from 'hooks/usePosts';
 import useSWR from 'swr';
 import fetcher from 'lib/fetcher';
 
@@ -109,11 +108,7 @@ function Card({
             overflow="hidden"
             border="1px solid #08090a1a"
         >
-            {headerImage ? (
-                <Image src={headerImage} width="1000" height="420" />
-            ) : (
-                ''
-            )}
+            {headerImage ? <Image src={headerImage} /> : ''}
             <Grid templateColumns="max-content 1fr" gap={2} p={4}>
                 <Image src={userProfile} w="8" borderRadius="full" />
 
@@ -155,7 +150,6 @@ function Card({
 }
 
 export default function Posts() {
-    // const { posts, error } = usePosts();
     const { data, error } = useSWR(
         'https://dev.to/stories/feed/?page=1',
         fetcher
