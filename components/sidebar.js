@@ -1,4 +1,12 @@
-import { Box, Button, Flex, Heading, Image, Text, Spacer } from '@chakra-ui/react';
+import {
+    Box,
+    Button,
+    Flex,
+    Heading,
+    Image,
+    Text,
+    Spacer,
+} from '@chakra-ui/react';
 import styled from '@emotion/styled';
 
 const LinkButton = styled(Button)`
@@ -42,8 +50,20 @@ function Links() {
                 Tags
             </LinkButton>
             <LinkButton>
-                <Text fontWeight="normal" color="#4d5760" ml="2.3rem">More...</Text>
+                <Text fontWeight="normal" color="#4d5760" ml="2.3rem">
+                    More...
+                </Text>
             </LinkButton>
+        </Box>
+    );
+}
+
+function TagList({ children }) {
+    return (
+        <Box>
+            {children.map((item, idx) => (
+                <LinkButton key={idx}>#{item}</LinkButton>
+            ))}
         </Box>
     );
 }
@@ -59,20 +79,35 @@ function Tags() {
                 <Image src="/assets/settings.svg" />
             </Flex>
             <Box maxH="42vh" overflowY="auto">
-                <LinkButton>#react</LinkButton>
-                <LinkButton>#javascript</LinkButton>
-                <LinkButton>#css</LinkButton>
-                <LinkButton>#beginners</LinkButton>
-                <LinkButton>#html</LinkButton>
-                <LinkButton>#career</LinkButton>
-                <LinkButton>#python</LinkButton>
-                <LinkButton>#tutorial</LinkButton>
-                <LinkButton>#productivity</LinkButton>
-                <LinkButton>#aws</LinkButton>
-                <LinkButton>#cpp</LinkButton>
-                <LinkButton>#docker</LinkButton>
-                <LinkButton>#bash</LinkButton>
-                <LinkButton>#rust</LinkButton>
+                <TagList>
+                    {[
+                        'react',
+                        'javascript',
+                        'css',
+                        'beginners',
+                        'html',
+                        'career',
+                        'python',
+                        'tutorial',
+                        'productivity',
+                        'aws',
+                        'cpp',
+                        'docker',
+                        'bash',
+                        'rust',
+                        'computerscience',
+                        'npm',
+                        'node',
+                        'php',
+                        'git',
+                        'vscode',
+                        'dart',
+                        'webassembly',
+                        'andriod',
+                        'discuss',
+                        'typescript',
+                    ]}
+                </TagList>
             </Box>
         </Box>
     );

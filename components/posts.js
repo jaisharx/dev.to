@@ -11,7 +11,6 @@ import {
     Image,
     Skeleton,
 } from '@chakra-ui/react';
-import NextImage from 'next/image';
 import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 import useSWR from 'swr';
@@ -136,8 +135,10 @@ function Card({
                         </PostLink>
                     </Heading>
                     <HStack mt="3" fontSize="14px" color="#64707d">
-                        {tagList.map((tag) => (
-                            <Text as={Link}>{tag}</Text>
+                        {tagList.map((tag, idx) => (
+                            <Text as={Link} key={idx}>
+                                {tag}
+                            </Text>
                         ))}
                     </HStack>
                     <HStack mt={3}>
