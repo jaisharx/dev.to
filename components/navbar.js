@@ -1,5 +1,16 @@
 import { Box, Button, HStack, Image, Input, Spacer } from '@chakra-ui/react';
+import styled from '@emotion/styled';
 import Container from './container';
+
+const DevButton = styled(Button)`
+    color: white;
+    border-radius: 4px;
+    background-color: #3b49df;
+
+    &:hover {
+        background-color: #323ebe;
+    }
+`;
 
 export default function Navbar() {
     return (
@@ -14,7 +25,7 @@ export default function Navbar() {
                         borderRadius="5px"
                     />
                     <Spacer />
-                    <Button colorScheme="blue">Write a post</Button>
+                    <DevButton>Write a post</DevButton>
                     <Image src="/assets/notification.svg" />
                     <Image src="/assets/bell.svg" />
                     <Image
