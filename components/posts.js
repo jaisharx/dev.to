@@ -106,6 +106,9 @@ function Card({
     tagList,
     headerImage,
     postLink,
+    readingTime,
+    reactionCount,
+    commentCount,
 }) {
     return (
         <Box
@@ -146,13 +149,13 @@ function Card({
                             leftIcon={<Image src="/assets/like.svg" />}
                             ml={-2}
                         >
-                            155 reactions
+                            {reactionCount} reactions
                         </CardBtn>
                         <CardBtn leftIcon={<Image src="/assets/comment.svg" />}>
-                            11 comments
+                            {commentCount} comments
                         </CardBtn>
                         <Spacer />
-                        <Text fontSize="12px">18 min read</Text>
+                        <Text fontSize="12px">{readingTime} min read</Text>
                         <SaveBtn>Save</SaveBtn>
                     </HStack>
                 </Box>
@@ -192,6 +195,9 @@ export default function Posts() {
                     title={post.title}
                     username={post.user.name}
                     tagList={post.tag_list}
+                    readingTime={post.reading_time}
+                    commentCount={post.comments_count}
+                    reactionCount={post.public_reactions_count}
                     postLink={`https://dev.to${post.path}`}
                     publishedDate={post.readable_publish_date}
                     userProfile={post.user.profile_image_url}
