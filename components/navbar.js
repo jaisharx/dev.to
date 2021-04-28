@@ -12,11 +12,23 @@ const DevButton = styled(Button)`
     }
 `;
 
+const IconButton = styled(Button)`
+    padding: 0.4rem;
+    width: auto;
+    height: auto;
+    border-radius: 100%;
+    background: transparent;
+
+    &:hover {
+        background-color: #f6f6f6;
+    }
+`;
+
 export default function Navbar() {
     return (
         <Box py="2" boxShadow="md" borderBottom="1px solid #b5bdc4">
             <Container>
-                <HStack spacing={5}>
+                <HStack spacing={4}>
                     <Image src="/assets/logo.svg" />
                     <Input
                         maxW="26rem"
@@ -25,10 +37,14 @@ export default function Navbar() {
                         borderRadius="5px"
                     />
                     <Spacer />
-                    <HStack spacing={6}>
+                    <HStack spacing={3}>
                         <DevButton>Write a post</DevButton>
-                        <Image src="/assets/notification.svg" />
-                        <Image src="/assets/bell.svg" />
+                        <IconButton>
+                            <Image src="/assets/notification.svg" />
+                        </IconButton>
+                        <IconButton>
+                            <Image src="/assets/bell.svg" />
+                        </IconButton>
                         <Image
                             w="10"
                             src="/assets/profile.jpeg"
