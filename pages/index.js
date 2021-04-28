@@ -6,26 +6,8 @@ import Sidebar from 'components/sidebar';
 import Container from 'components/container';
 import Posts from 'components/posts';
 import Listing from 'components/listings';
-import { useEffect } from 'react';
 
 export default function Home() {
-    useEffect(() => {
-        function zoomPage() {
-            document.querySelector('#page').style.zoom = .4;
-            console.log('zoom event fired');
-        }
-
-        function checkMessage(evt) {
-            if (evt.origin === 'https://jaisharma.dev/') {
-                if (evt.data === 'isZoomed') {
-                    zoomPage();
-                }
-            }
-        }
-
-        window.addEventListener('message', checkMessage, false);
-    }, []);
-
     return (
         <>
             <Head>
