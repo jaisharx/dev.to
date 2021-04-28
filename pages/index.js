@@ -12,6 +12,7 @@ export default function Home() {
     useEffect(() => {
         function zoomPage() {
             document.querySelector('#page').style.zoom = .4;
+            console.log('zoom event fired');
         }
 
         function checkMessage(evt) {
