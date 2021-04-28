@@ -137,7 +137,7 @@ function Card({
                     <HStack mt="3" fontSize="14px" color="#64707d">
                         {tagList.map((tag, idx) => (
                             <Text as={Link} key={idx}>
-                                {tag}
+                                #{tag}
                             </Text>
                         ))}
                     </HStack>
