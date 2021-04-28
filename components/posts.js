@@ -15,6 +15,7 @@ import { css } from '@emotion/react';
 import styled from '@emotion/styled';
 import useSWR from 'swr';
 import fetcher from 'lib/fetcher';
+import { useState } from 'react';
 
 const HeaderBtn = styled(Button)`
     position: relative;
@@ -27,6 +28,10 @@ const HeaderBtn = styled(Button)`
         &::after {
             width: 100%;
         }
+    }
+
+    &:focus {
+        box-shadow: none;
     }
 
     ${(props) =>
@@ -81,18 +86,30 @@ const PostLink = styled(Link)`
     }
 `;
 
-function Header() {
+function Header({ isActive, setIsActive }) {
     return (
         <Box as="header">
             <HStack spacing=".6rem">
                 <Heading fontSize="1.25rem">Posts</Heading>
                 <Spacer />
-                <HeaderBtn isCurrent>Feed</HeaderBtn>
-                <HeaderBtn>Week</HeaderBtn>
-                <HeaderBtn>Month</HeaderBtn>
-                <HeaderBtn>Year</HeaderBtn>
-                <HeaderBtn>Infinity</HeaderBtn>
-                <HeaderBtn>Latest</HeaderBtn>
+                {timeperiods.map((item, idx) => {
+                    if (isActive === item) {
+                        return (
+                            <HeaderBtn
+                                key={idx}
+                                isCurrent={isActive}
+                                onClick={() => setIsActive(item)}
+                            >
+                                {item}
+                            </HeaderBtn>
+                        );
+                    }
+                    return (
+                        <HeaderBtn key={idx} onClick={() => setIsActive(item)}>
+                            {item}
+                        </HeaderBtn>
+                    );
+                })}
             </HStack>
         </Box>
     );
@@ -164,9 +181,18 @@ function Card({
     );
 }
 
+const timeperiods = ['Feed', 'Week', 'Month', 'Year', 'Infinity', 'Latest'];
+function returnFetchUrl(isActive) {
+    if (isActive === 'Feed') {
+        return '';
+    }
+    return isActive.toLowerCase();
+}
+
 export default function Posts() {
+    const [isActive, setIsActive] = useState(timeperiods[0]);
     const { data, error } = useSWR(
-        'https://dev.to/stories/feed/?page=1',
+        `https://dev.to/stories/feed/${returnFetchUrl(isActive)}?page=1`,
         fetcher
     );
 
@@ -188,7 +214,7 @@ export default function Posts() {
 
     return (
         <Box mb="8" borderRadius="md">
-            <Header />
+            <Header isActive={isActive} setIsActive={setIsActive} />
             {data.map((post, idx) => (
                 <Card
                     key={post.id}
