@@ -19,7 +19,7 @@
   <summary>Table of Contents</summary>
   <ol>
     <li>
-      <a href="#about-the-project">About The Project</a>
+      <a href="#about-the-project">Preview</a>
     </li>
     <li>
       <a href="#getting-started">Getting Started</a>
@@ -37,7 +37,7 @@
 
 <!-- ABOUT THE PROJECT -->
 
-## About The Project
+## Preview
 
 [![Dev.to Homepage][product-screenshot]](https://dev-to-pied.vercel.app/)
 
