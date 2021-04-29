@@ -1,34 +1,103 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+![Vercel Build Status](https://vercel-status.herokuapp.com/jaisharx/dev.to)
+
+<!-- PROJECT LOGO -->
+<br />
+<p align="center">
+  <a href="https://dev-to-pied.vercel.app/">
+    <img src="./public/assets/logo.svg" alt="Logo" width="80" height="80">
+  </a>
+
+  <h2 align="center">Dev.to Clone</h2>
+
+  <p align="center">
+    Built with react & nextjs.
+  </p>  
+</p>
+
+<!-- TABLE OF CONTENTS -->
+<details open="open">
+  <summary>Table of Contents</summary>
+  <ol>
+    <li>
+      <a href="#about-the-project">About The Project</a>
+    </li>
+    <li>
+      <a href="#getting-started">Getting Started</a>
+      <ul>
+        <li><a href="#installation">Installation</a></li>
+      </ul>
+    </li>
+    <li><a href="#usage">Usage</a></li>
+    <li><a href="#roadmap">Roadmap</a></li>
+    <li><a href="#contributing">Contributing</a></li>
+    <li><a href="#license">License</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ol>
+</details>
+
+<!-- ABOUT THE PROJECT -->
+
+## About The Project
+
+[![Dev.to Homepage][product-screenshot]](https://dev-to-pied.vercel.app/)
+
+<!-- GETTING STARTED -->
 
 ## Getting Started
 
-First, run the development server:
+To get a local copy up and running follow these simple example steps.
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+### Installation
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+1. Clone the repo
+    ```sh
+    git clone git@github.com:jaisharx/dev.to.git
+    ```
+2. Install NPM packages
+    ```sh
+    npm install
+    ```
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+<!-- USAGE EXAMPLES -->
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+## Usage
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+Project repo is bootstraped from nextjs-starter template. It consist of a single index.js page that holds the logic for fetching and showing posts to the user.
 
-## Learn More
+_If you want to learn more about react, please refer to the [Reactjs Docs](https://reactjs.org/) or if you want to learn more about nextjs, please refer to the [Nextjs Docs](https://nextjs.org/)_
 
-To learn more about Next.js, take a look at the following resources:
+<!-- ROADMAP -->
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Roadmap
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+See the [open issues](https://github.com/jaisharx/dev.to/issues) for a list of proposed features (and known issues).
 
-## Deploy on Vercel
+<!-- CONTRIBUTING -->
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Contributing
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+You're welcome to contribute to this repo, contributions are what make the open source community such an amazing place to be learn, inspire, and create.
+
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the Branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+<!-- LICENSE -->
+
+## License
+
+Distributed under the MIT License. See `LICENSE` for more information.
+
+<!-- CONTACT -->
+
+## Contact
+
+Email - sendtojsharma@gmail.com
+
+Project Link: [https://github.com/jaisharx/dev.to](https://github.com/jaisharx/dev.to)
+
+<!-- MARKDOWN LINKS & IMAGES -->
+
+[product-screenshot]: ./public/dev.to.png
