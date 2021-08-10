@@ -17,7 +17,7 @@ export default function Home() {
 
       <Navbar />
 
-      <Box as="main" bg="#EEF0F1" id="page">
+      <Box as="main" bg="#EEF0F1" mt="14" id="page">
         <Container>
           <Grid templateColumns="1fr 3fr 1.5fr" gap={4} pt="4">
             <Sidebar />
