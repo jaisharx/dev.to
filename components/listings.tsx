@@ -30,7 +30,7 @@ function HashTagHeading() {
     );
 }
 
-function List({ headingType }) {
+function List({ headingType = "" }) {
     return (
         <Box as="section" bg="white" borderRadius="md" border="1px solid #E2E4E6">
             {headingType === 'hashtag' ? <HashTagHeading /> : <ListHeading />}
