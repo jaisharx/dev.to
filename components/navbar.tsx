@@ -1,16 +1,15 @@
-import { Box, Button, HStack, Image, Input, Spacer } from '@chakra-ui/react'
+import {
+  Box,
+  Button,
+  HStack,
+  Image,
+  Input,
+  InputGroup,
+  InputRightElement,
+  Spacer,
+} from '@chakra-ui/react'
 import styled from '@emotion/styled'
 import Container from './container'
-
-const DevButton = styled(Button)`
-  color: white;
-  border-radius: 4px;
-  background-color: #3b49df;
-
-  &:hover {
-    background-color: #323ebe;
-  }
-`
 
 const IconButton = styled(Button)`
   padding: 0.4rem;
@@ -34,21 +33,29 @@ export default function Navbar() {
       py="2"
       bg="white"
       zIndex="docked"
-      boxShadow="md"
       borderBottom="1px solid #b5bdc4"
     >
       <Container>
         <HStack spacing={4}>
           <Image src="/assets/logo.svg" />
-          <Input
-            maxW="26rem"
-            placeholder="Search..."
-            borderColor="#b5bdc4"
-            borderRadius="5px"
-          />
+          <InputGroup maxW="26rem">
+            <InputRightElement children={<Image src="/assets/search.svg" />} />
+            <Input
+              placeholder="Search..."
+              borderColor="#b5bdc4"
+              borderRadius="5px"
+            />
+          </InputGroup>
           <Spacer />
           <HStack spacing={3}>
-            <DevButton>Write a post</DevButton>
+            <Button
+              variant="outline"
+              color="#3b49df"
+              borderColor="#3b49df"
+              _hover={{ bg: '#3b49df', color: 'white' }}
+            >
+              Create Post
+            </Button>
             <IconButton>
               <Image src="/assets/notification.svg" />
             </IconButton>
